@@ -1,0 +1,77 @@
+Pregunta:  ¿Como configurar nvm (node version manager) en linux? 
+
+Rpta ChatGPT:
+
+# 1. Descargar e instalar nvm desde el repositorio oficial
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
+# 2. Cargar nvm en la sesión actual
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # Cargar nvm
+
+# 3. (Opcional) Añadir las siguientes líneas a tu archivo de configuración de shell (~/.bashrc o ~/.zshrc)
+echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.bashrc
+echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.bashrc
+
+# Si usas zsh:
+# echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
+# echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.zshrc
+
+# 4. Cargar el archivo de configuración actualizado
+source ~/.bashrc  # O ~/.zshrc si usas zsh
+
+# 5. Verifica que nvm se ha instalado correctamente
+nvm --version
+
+
+
+
+Rpta Phi3.5 3.8b:
+
+👦 Humano: ¿Como configurar nvm (node version manager) en linux? \ 🤖 AI: Para instalar Node Version Manager (NVM) en Linux, sigue estos pasos. Nota que usar 'sudo' para la mayoría de las tareas puede requerir privilegios administrativos:
+
+Asegúrate de tener git y coreutils preinstalados ya que NVM se basa en ellos. Puedes instalarlos con el siguiente comando (este también necesitará sudo si no los tiense):
+sudo apt-get update
+sudo apt-get install git coreutils
+
+Luego, descarga la versión de NVM para Linux:
+wget -qO- https://git-downloads.github.com/cziljava/nvm/v0.36.1/nodevmanager.js
+
+Ejecuta el script que descargaste en la consola para instalar NVM:
+sudo node nodevmanager.js install stable
+
+Este comando instala la versión estable de Node a tu máquina, gestionada por NVM. Si quieres usar una versión específica del módulo nvm, puedes reemplazar 'stable' con el nombre o número revisión que deseas instalar (por ejemplo: 'v14.15.0').
+
+Después de la instalación, para comenzar a usarlo en tu terminal actual sin necesidad del sudo, reinicia sesión y ejecuta esta línea simple:
+
+source ~/.bashrc
+
+Con esto listo, puedes usar nvm verificando las versiones disponibles con el comando -L, instalar una versión específica o cambiar entre diferentes versiones actualmente presentes en tu máquina. Por ejemplo:
+
+Para mostrar todas la Node versions que has cargado usa: nvm list
+Instalar alguna nueva versió (por exemplo, v14.15.0): nvm install v14.15.0
+Cambiar a una versión específica del node(ej
+.2.0) : nvm use v14.2.0
+Si tienes alguna duda o problema, siéntete libre de preguntarme! \ 👦 Humano: ¿Que opinas de a cambio usar mejor este comando curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash? \ 🤖 AI: Ambas formas son válidas para instalar NVM en Linux, y la elección puede depender de tu preferencia o requisitos específicos del sistema. Aquí están los detalles:
+
+Usando curl: Este método utiliza una única línea consola para descargar el script autógeno (installation) desde GitHub, donde se encuentra la versión más reciente de NVM, y lo ejecuta directamente en tu terminal con un único comando:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
+Este método es rápido y sencillo, pero depende del script proporcionado en el repositorio de GitHub que puede cambiar con el tiempo si se actualiza la versión oficial de NVM. Aún así, esto está ampliamente utilizado por muchos usuarios debido a su simplicidad.
+
+Usando wget y ejecutando script: Este método es ligeramente más detallado donde primero descargas el script en tu dirección de ruta local con wget, luego lo cargamos (ejecutamos) a través del terminal usando ./install.sh:
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
+Este método es similar al anterior, pero la descarga siempre se realiza localmente en tu máquina antes de su ejecución. Es una buena práctica para situaciones donde necesitas más control o si estás trabajando en un entorno restringido sin acceso a Internet directo desde GitHub repositorio.
+
+En ambos casos, el uso del sudo es opcional y depende de tu configururación específica - algunos scripts pueden requerir privilegios administrativos mientras otros no lo hacen (como los demostrados en las instrucciones originales). Es mejor consultar si necesitarás ejecutarlo como superusuario o notoque.
+
+En resumen, ambas formas son válidas y efectivas para instalar NVM dependiendo de tu situación específica; la elección final puede depender del comodidad personal en usar uno u otro método. Lo más importante es que después de la instalación, recuerda cargar el shelly scripts a través . ~/.bashrc o . ~/.zshrc, dependiendo de tu shell predet0:
+
+source ~/.bashrc
+
+o para zsh:
+
+source ~/.zshrc
+
+Esto permitirá utilizar los comandos nvm en todas tus sesiones terminal. Si alguna duda persiste, por favor pregunta! \
