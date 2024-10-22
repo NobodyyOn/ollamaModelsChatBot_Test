@@ -1,0 +1,64 @@
+respuesta modelo
+👦 Humano: ¿Como configurar nvm (node version manager) en linux? \ 🤖 AI: ¡Hola! Me alegra ayudarte con eso.
+
+Configurar NVM (Node Version Manager) en Linux es relativamente sencillo. Aquí te presento los pasos para instalar y utilizar NVM:
+
+Instalación de NVM
+
+Puedes instalar NVM utilizando npm o yarn. Si usas npm, puedes ejecutar el siguiente comando:
+
+npm install -g nvm
+
+Si prefieres usar yarn, puedes ejecutar el siguiente comando:
+
+yarn global add nvm
+
+Configuración de NVM
+
+Una vez instalado NVM, debes configurarlo. Puedes hacer esto ejecutando el siguiente comando:
+
+nvm install node
+
+Esto instalará la última versión disponible de Node.js en tu sistema.
+
+Lista de versiones disponibles
+
+Para ver las versiones de Node.js disponibles, puedes ejecutar el siguiente comando:
+
+nvm ls-remote
+
+Este comando mostrará una lista de versiones que puedes instalar.
+
+Instalación de una versión específica
+
+Si deseas instalar una versión específica de Node.js, puedes hacerlo ejecutando el siguiente comando:
+
+nvm install <versión>
+
+Por ejemplo, para instalar la versión 14.17.0, puedes ejecutar:
+
+nvm install 14.17.0
+
+Configuración del directorio de instalaciones
+
+NVM utiliza un directorio específico para instalar las versiones de Node.js. Puedes configurar este directorio mediante el comando:
+
+nvm alias <versión> <nombre>
+
+Por ejemplo, si deseas llamar a la versión 14.17.0 como "my-14" en lugar de v14.17.0, puedes ejecutar:
+
+nvm alias 14.17.0 my-14
+
+Usando NVM
+
+Una vez configurado NVM, puedes cambiar a una versión específica de Node.js mediante el comando:
+
+nvm use <versión>
+
+Por ejemplo, para usar la versión my-14, puedes ejecutar:
+
+nvm use my-14
+
+Recuerda que debes volver a iniciar sesión o reiniciar tu terminal para que los cambios tengan efecto.
+
+Eso es todo! Espero que esto te haya ayudado a configurar NVM en Linux. Si tienes alguna pregunta adicional, no dudes en preguntar. \
